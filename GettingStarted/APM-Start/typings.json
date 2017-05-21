@@ -1,6 +1,14 @@
+<<<<<<< HEAD
 {
   "globalDependencies": {
     "core-js": "registry:dt/core-js#0.0.0+20160725163759",
     "node": "registry:dt/node#6.0.0+20160831021119"
   }
+=======
+{
+  "globalDependencies": {
+    "core-js": "registry:dt/core-js#0.0.0+20160725163759",
+    "node": "registry:dt/node#6.0.0+20160831021119"
+  }
+>>>>>>> b8b6101e9c3aa9502e742d57269f7b4b8166b4e2
 }
