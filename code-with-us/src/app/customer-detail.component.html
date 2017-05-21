@@ -1,0 +1,26 @@
+
+<h1>
+    <button (click)="pageLeft()"><</button>
+    {{customer.name}}
+    <button (click)="pageRight()">></button>
+</h1>
+
+<p><i>{{customer.name}} is at {{customer.address.street}} in {{customer.address.city}} in the region {{customer.address.region}}</i></p>
+<br/>
+
+<fieldset>
+    <h2>Two-Way Data Binding (3/3)</h2>
+    <label>Name:</label><br/>
+    <input [(ngModel)]="customer.name"><br/>
+</fieldset>
+
+<label *ngIf="showAddress"><input type="checkbox" [(ngModel)]="showAddress">Hide Address</label>
+<label *ngIf="!showAddress"><input type="checkbox" [(ngModel)]="showAddress">Show Address</label>
+
+<!-- handy for debugging what values are set as ... -->
+<pre>{{street | json}}</pre>
+
+<!-- div will only exist in the DOM and be shown on the screen if the property showAdress is true -->
+<div *ngIf="showAddress">
+    <my-address [address]="customer.address"></my-address>
+</div>

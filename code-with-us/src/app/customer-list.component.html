@@ -1,0 +1,19 @@
+<h1>Customers</h1>
+
+<div>
+
+    <!-- customer list is here -->
+    <p *ngIf="isBusy"><i>Loading customers</i></p>
+    <p *ngIf="!isBusy"><i>Select a customer</i></p>
+    <ul>
+        <li *ngFor="let custObj of customers" 
+            [ngClass]="{selected: customer===custObj}"
+            (click)="customer=custObj">{{custObj.name}}</li>
+    </ul>
+
+    <!-- details begin here -->
+    <div *ngIf="customer">
+        <customer-detail [customer]="customer" (pagingClicked)="paging($event)"></customer-detail>
+    </div>
+
+</div>
