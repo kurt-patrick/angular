@@ -1,5 +1,5 @@
-<<<<<<< HEAD
-import { Component } from "@angular/core";
+import { Component, OnInit } from "@angular/core";
+import { ActivatedRoute, Router } from "@angular/router";
 
 import { IProduct } from "./product";
 
@@ -7,20 +7,20 @@ import { IProduct } from "./product";
     moduleId: module.id,
     templateUrl: './product-detail.component.html'
 })
-export class ProductDetailComponent {
+export class ProductDetailComponent implements OnInit {
     pageTitle: string = "Product Details";
     product: IProduct;
-=======
-import { Component } from "@angular/core";
 
-import { IProduct } from "./product";
+    constructor(private _route: ActivatedRoute, private _router: Router) {
+    }
 
-@Component({
-    moduleId: module.id,
-    templateUrl: './product-detail.component.html'
-})
-export class ProductDetailComponent {
-    pageTitle: string = "Product Details";
-    product: IProduct;
->>>>>>> b8b6101e9c3aa9502e742d57269f7b4b8166b4e2
+    ngOnInit(): void {
+        // note: the + converts the string to a numeric id
+        let id = +this._route.snapshot.params['id'];
+        this.pageTitle += `: ${id}`;
+    }
+
+    onBack(): void {
+        this._router.navigate(['/products']);
+    }
 }
